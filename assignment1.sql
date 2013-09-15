@@ -30,4 +30,9 @@ where city = 'New York' or city = 'Newark';
 
 select * from Products
 where city != 'Newark' and city != 'New York'
-and priceusd <= 1.00
+and priceusd <= 1.00; --different type here hence why it's on a different line
+
+--List all data for orders in January or March.
+
+select * from Orders
+where mon = cast ('jan' as text) or mon = cast('mar' as text)
