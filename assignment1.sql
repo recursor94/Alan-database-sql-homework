@@ -25,3 +25,9 @@ where city != 'Dallas';
 
 select name from Agents
 where city = 'New York' or city = 'Newark';
+
+--List all data for products not in New York or Newark that cost 1 us dollar or less
+
+select * from Products
+where city != 'Newark' and city != 'New York'
+and priceusd <= 1.00
