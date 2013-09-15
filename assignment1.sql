@@ -19,4 +19,9 @@ select ordno, aid from Orders;
 --List the names and cities of customers not in Dallas.
 
 select name, city from Customers
-where city !== 'Dallas';
+where city != 'Dallas';
+
+--List the names of agents in New York or Newark
+
+select name from Agents
+where city = 'New York' or city = 'Newark';
