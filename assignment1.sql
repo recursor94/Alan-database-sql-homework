@@ -48,6 +48,6 @@ and dollars < 100.00;
 --List all orders from the customer whose cid is coo5
 
 select * from Orders
-where cid = 'c005'
+where cid = 'c005';
 
 --nothing again?  Is this a trick question? hmmm....
