@@ -1,7 +1,6 @@
-create table Customers {
-cid    int,
-nam    varchar(255),
-city   varchar(255)
-discount	double
+--List all data for all customers
 
-}
+select * from customers;
+
+
+-- List the name and city of agents named smith
