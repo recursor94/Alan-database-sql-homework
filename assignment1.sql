@@ -41,4 +41,13 @@ where mon = cast ('jan' as text) or mon = cast('mar' as text);
 
 select * from Orders
 where mon = cast ('feb' as text)
-and priceusd < 100.00;
+and dollars < 100.00;
+
+--That would probably work if there were any entries that were actually less than 100 dollars.
+
+--List all orders from the customer whose cid is coo5
+
+select * from Orders
+where cid = 'c005'
+
+--nothing again?  Is this a trick question? hmmm....
