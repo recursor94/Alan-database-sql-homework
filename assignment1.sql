@@ -35,4 +35,10 @@ and priceusd <= 1.00; --different type here hence why it's on a different line
 --List all data for orders in January or March.
 
 select * from Orders
-where mon = cast ('jan' as text) or mon = cast('mar' as text)
+where mon = cast ('jan' as text) or mon = cast('mar' as text);
+
+-- List all data for orders in February less than US 100
+
+select * from Orders
+where mon = cast ('feb' as text)
+and priceusd < 100.00;
