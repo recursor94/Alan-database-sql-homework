@@ -12,3 +12,6 @@ where name = 'Smith'
 
 select pid, name,  quantity from Products
 where priceusd > 1.25
+
+--List the ordno and aid of all orders
+select ordno, aid from orders
