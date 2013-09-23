@@ -1,7 +1,11 @@
+--Get the cities of agents booking an order for customer c002
+
 select distinct city from Agents 
 where aid in(
        select aid  from Orders
        where cid = 'c002');
+
+--Get the pids of products ordered through any agent who makes at least one order for a custamer in kyoto. (this is not the same as asking for pids of products ordered by a customer in kyoto.)
 
 select distinct pid from Orders 
 where aid in (
@@ -10,22 +14,25 @@ where aid in (
       	    (
 		select cid from Customers
 		where city = 'Kyoto'));
+--Find the cids and names of customers who never placed an order through agent a03.
 
 select distinct cid, name from Customers
 where cid not in (
       select distinct cid from orders
       where aid = 'a03');
-
+--Get the cids and names of customers who ordered both product p01 and p07
 select distinct cid, name from Customers
 where cid in (
       select cid from Orders
       where pid = 'p01' or pid = 'p02');
+--Get the pids of prodects ordered by  any customers who never placed an order through agent a03
 
 select distinct pid from Orders
 where cid in (
       select cid from Orders
       where aid = 'a03');
 
+--Get the cids and names of customers who place orders through agents in Dallas or Duluth
 select name, discount from Customers
 where cid in (
       select cid from Orders
@@ -33,7 +40,7 @@ where cid in (
       	    select aid from Agents
 	    where city = 'Dallas' or city = 'Duluth'));
 
-
+--Find all customers who have the same discount as that of any customers in Dallas or kyoto
 
 select * from Customers
 where not city = 'Dallas' and not city = 'Kyoto' and discount in (
