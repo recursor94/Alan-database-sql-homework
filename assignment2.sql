@@ -21,6 +21,7 @@ where cid in (
       select cid from Orders
       where pid = 'p01' or pid = 'p02');
 
-select distinct pid from Products
+select distinct pid from Orders
 where cid in (
-      
+      select cid from Orders
+      where aid = 'a03');
