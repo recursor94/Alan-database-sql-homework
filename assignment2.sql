@@ -32,3 +32,10 @@ where cid in (
       where aid in (
       	    select aid from Agents
 	    where city = 'Dallas' or city = 'Duluth'));
+
+
+
+select * from Customers
+where not city = 'Dallas' and not city = 'Kyoto' and discount in (
+      select discount from Customers  --better check to make sure we don't include the cities themselves in there.  Because we already know that they're equal to their own discounts
+      where city = 'Dallas' or city = 'Kyoto');
