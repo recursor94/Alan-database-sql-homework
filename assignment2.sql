@@ -24,7 +24,7 @@ where cid not in (
 select distinct cid, name from Customers
 where cid in (
       select cid from Orders
-      where pid = 'p01' or pid = 'p02');
+      where pid = 'p01' or pid = 'p07');
 --Get the pids of prodects ordered by  any customers who never placed an order through agent a03
 
 select distinct pid from Orders
@@ -40,7 +40,7 @@ where cid in (
       	    select aid from Agents
 	    where city = 'Dallas' or city = 'Duluth'));
 
---Find all customers who have the same discount as that of any customers in Dallas or kyoto
+--Find all customers who have the same discount as that of any customers in Dallas or kyoto.
 
 select * from Customers
 where not city = 'Dallas' and not city = 'Kyoto' and discount in (
