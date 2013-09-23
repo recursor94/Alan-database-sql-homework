@@ -25,3 +25,10 @@ select distinct pid from Orders
 where cid in (
       select cid from Orders
       where aid = 'a03');
+
+select name, discount from Customers
+where cid in (
+      select cid from Orders
+      where aid in (
+      	    select aid from Agents
+	    where city = 'Dallas' or city = 'Duluth'));
