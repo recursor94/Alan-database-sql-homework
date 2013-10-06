@@ -9,3 +9,11 @@ inner join Orders o
       on 
 ---
 
+--Get the names of customers who have never placed an order.  Use a subquery.
+select distinct name from Customers
+where not cid in (
+      select cid from Orders
+      ); 
+
+--Get the names of customers who have never placed an order.  Use an outer join.
+
