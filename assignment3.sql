@@ -17,3 +17,7 @@ where not cid in (
 
 --Get the names of customers who have never placed an order.  Use an outer join.
 
+select distinct name from Customers c
+left outer join orders o
+     on c.cid = o.cid
+where o.cid is null;
