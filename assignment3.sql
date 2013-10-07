@@ -23,6 +23,5 @@ left outer join Orders o
 where o.cid is null;
 
 --Get the names of customers who placed at least one order through an agent in their city, along with those agent(s) names.
-select distinct c.name, a.name from Customers c, Agents a
-inner join Orders o
-      on a.city = c.city;
+select distinct c.name, a.name from Customers c, Agents a, Orders o
+where c.city = a.city and o.aid = a.aid and o.cid = c.cid;
