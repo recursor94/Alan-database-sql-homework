@@ -51,3 +51,17 @@ where c.city in (
       order by count(quantity) desc
       limit 1);
 
+--Get the name and city of customers who live in ANY city where the most number of products are made.
+
+select distinct c.name, c.city from Customers c
+inner join Products p
+      on (
+		select city from Products
+		order by count(quantity);
+
+
+--list the products whose priceusd is above the average priceUSD
+select * from Products
+where priceusd in (
+      select priceusd from Products
+      group by  priceusd having priceusd > average);
