@@ -30,3 +30,7 @@ where c.city = a.city and o.aid = a.aid and o.cid = c.cid;
 
 select distinct c.name, a.name from Customers c, Agents a, Orders o
 where c.city = a.city;
+
+--Get the name and city of customers who live in a city where the least number of products are made
+
+select avg(dollars) from Orders;
