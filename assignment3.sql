@@ -34,3 +34,10 @@ where c.city = a.city;
 --Get the name and city of customers who live in a city where the least number of products are made
 
 select avg(dollars) from Orders;
+
+select distinct c.name, c.city from Customers c
+where c.city in (
+      select city from products
+      group by city
+      order by count(quantity)
+      limit 1); --will only send the lowest city
