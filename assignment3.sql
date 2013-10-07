@@ -25,3 +25,8 @@ where o.cid is null;
 --Get the names of customers who placed at least one order through an agent in their city, along with those agent(s) names.
 select distinct c.name, a.name from Customers c, Agents a, Orders o
 where c.city = a.city and o.aid = a.aid and o.cid = c.cid;
+
+--Get the names of customers and agents in the same city, along with the name of the city, regardless of whether or not the customer has ever placed an order with that agent.
+
+select distinct c.name, a.name from Customers c, Agents a, Orders o
+where c.city = a.city;
