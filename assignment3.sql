@@ -33,11 +33,21 @@ where c.city = a.city;
 
 --Get the name and city of customers who live in a city where the least number of products are made
 
-select avg(dollars) from Orders;
+select avg(dollars) from Orders; --there to test function calls in sql.  I ultimately abandoned the idea.
 
 select distinct c.name, c.city from Customers c
 where c.city in (
-      select city from products
+      select city from Products
       group by city
       order by count(quantity)
       limit 1); --will only send the lowest city
+
+
+--get the name and the city of customers who live in A city where the most number of products are made.
+select distinct c.name, c.city from Customers c
+where c.city in (
+      select city from Products
+      group by city
+      order by count(quantity) desc
+      limit 1);
+
