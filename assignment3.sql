@@ -18,6 +18,11 @@ where not cid in (
 --Get the names of customers who have never placed an order.  Use an outer join.
 
 select distinct name from Customers c
-left outer join orders o
+left outer join Orders o
      on c.cid = o.cid
 where o.cid is null;
+
+--Get the names of customers who placed at least one order through an agent in their city, along with those agent(s) names.
+select distinct c.name, a.name from Customers c, Agents a
+inner join Orders o
+      on a.city = c.city;
