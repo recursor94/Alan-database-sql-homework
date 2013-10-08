@@ -78,9 +78,11 @@ select p.city, p.quantity from Products p
 group by p.city, p.quantity
 order by count(p.quantity);
 
+select 
 
+--How do I add the quantity of all of one city?
 
 
 --list the products whose priceusd is above the average priceUSD
---select * from Products
---where priceusd > (select avg(priceusd) from products);
+select * from Products
+where priceusd > (select avg(priceusd) from products);
