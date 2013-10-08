@@ -108,3 +108,9 @@ select * from orders o, customers c, products p
 where o.cid = c.cid and o.pid = p.pid 
 and o.dollars != ( p.priceusd * o.qty * ((100 - c.discount) / 100)) 
 and o.dollars is not null;
+
+---- Create an error in the dollars column of the Orders table so that you can verify your accuracy checking query.
+
+update orders
+set dollars = 9001
+where ordno = 1020;
