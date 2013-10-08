@@ -86,3 +86,9 @@ select
 --list the products whose priceusd is above the average priceUSD
 select * from Products
 where priceusd > (select avg(priceusd) from products);
+
+-- Show the customer name, pid ordered, and the dollars for all customer orders, sorted by dollars from high to low.
+select c.name, o.pid, o.dollars
+from orders o, customers c
+where o.cid = c.cid
+order by dollars desc;
