@@ -92,3 +92,11 @@ select c.name, o.pid, o.dollars
 from orders o, customers c
 where o.cid = c.cid
 order by dollars desc;
+
+
+-- Show all customer names (in order) and their total ordered, and nothing more. Use coalesce to avoid showing NULLs. 
+select c.name, coalesce(sum(o.qty),0) as "total products ordered" from customers c
+left outer join orders o
+     on c.cid = o.cid
+     group by c.name, c.cid
+     order by c.name;
