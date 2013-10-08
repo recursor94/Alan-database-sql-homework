@@ -1,7 +1,23 @@
+--Get the cities of agents booking an order for customer c002. Use a subquery.(Ysame as homewqrk #2)
+select distinct city from Agents 
+where aid in(
+       select aid  from Orders
+       where cid = 'c002');
+
+
 --Get the cities of agents booking an order for customer c002.  THis time use joins; no subqueries.
 select city from Agents a
 inner join Orders o
       on o.aid = a.aid and o.cid='c002';
+
+--Get the pids of products ordered through an agent who makes at least one orde for a customer in KYoto.  Use subquerise.(same as hw2)
+select distinct pid from Orders 
+where aid in (
+      select aid from Orders
+      where cid in
+      	    (
+		select cid from Customers
+		where city = 'Kyoto'));
 
 --Get the pids of products ordered through any agent who makes at least one order for a customer in Kyoto.  Use joins this time; no subqueries.
 select distinct pid from Products p
@@ -62,6 +78,4 @@ inner join Products p
 
 --list the products whose priceusd is above the average priceUSD
 select * from Products
-where priceusd in (
-      select priceusd from Products
-      group by  priceusd having priceusd > average);
+where priceusd > (select avg(priceusd) from products);
