@@ -98,5 +98,13 @@ order by dollars desc;
 select c.name, coalesce(sum(o.qty),0) as "total products ordered" from customers c
 left outer join orders o
      on c.cid = o.cid
-     group by c.name, c.cid
+     group by c.name
      order by c.name;
+
+
+-- Write a query to check the accuracy of the dollars column in the Orders table. This means calculating Orders.dollars from other data in other tables and then comparing those values to the values in Orders.dollars. 
+
+select * from orders o, customers c, products p
+where o.cid = c.cid and o.pid = p.pid 
+and o.dollars != ( p.priceusd * o.qty * ((100 - c.discount) / 100)) 
+and o.dollars is not null;
